@@ -136,6 +136,8 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-address-link:hover, .header-address-link:focus, .link.current {
@@ -145,14 +147,17 @@ img {
 
 /* Section 1 */
 
+
+
 .section-1 {
+    max-width: 1440px;
     width: 100%;
     background: #2e2f42;
     line-height: 1.07;
     padding: 188px 0;
     background-image: linear-gradient(rgba(46, 47, 66, 0.7),
     rgba(46, 47, 66, 0.7)),
-      url('../images/section_1/people-office 1.jpg');
+      url('../images/people-office\ 1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -339,6 +344,7 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
   display: flex;
   flex-direction: row;
   gap: 24px;
+  justify-content: center;
 }
 
 .social-list-link {
@@ -354,7 +360,7 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-list-link:hover {
+.social-list-link:hover, .social-list-link:focus {
   background-color: #404bbf;
 }
 
@@ -385,23 +391,26 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
   overflow: hidden;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateY(100%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  background-color: #4d5ae5;
-  color: #f4f4fd;
-  padding: 40px 32px;
+
+.element-our-portfolio-list:hover .paragraph-hidden {
+  transform: translateY(0%);
+  
 }
 
-.element-our-portfolio-list:hover .overlay {
-  transform: translateY(0);
-  
+.paragraph-hidden {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px;
+  background-color: #4d5ae5;
+  height: 100%;
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .our-portfolio-underfoto {
@@ -418,7 +427,7 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
 
 .element-our-portfolio-list {
   width: calc((100% - 48px) / 3);
-
+  transform: translateY(0%);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -455,6 +464,11 @@ padding: 100px 0;
 .footer-content {
   display: flex;
   gap: 120px;
+  align-items: baseline;
+}
+
+.logo-text-footer {
+  margin-right: 120px;
 }
 
 .logo-footer {
@@ -490,14 +504,20 @@ padding: 100px 0;
 }
 
 .social-media-text-footer {
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
-  color: #f4f4fd;
+  color: #FFFFFF;
    max-width: 264px;
   margin-bottom: 16px;
 }
+
+.social-list {
+  display: flex;
+  gap: 16px;
+}
+
 .social-list-link-footer {
   display: flex;
     align-items: center;
@@ -511,7 +531,7 @@ padding: 100px 0;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.social-list-link-footer:hover {
+.social-list-link-footer:hover, .social-list-link-footer:focus {
   background-color: #31d0aa;
 }
 
