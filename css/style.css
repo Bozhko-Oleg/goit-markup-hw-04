@@ -28,6 +28,7 @@ img {
   background-color: #fff;
   font-family: "Roboto", sans-serif;
   color: #434455;
+  width: 1440px;
 }
 
 .container {
@@ -44,11 +45,13 @@ img {
 
 .page-header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
 .header-container {
   display: flex;
   align-items: center;
+  gap: 332px;
 }
 
 .header-nav {
@@ -70,7 +73,7 @@ img {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: #4d5ae5;
-  padding: 24px 0;
+  
   margin-right: 76px;
 }
 
@@ -86,12 +89,32 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
+  position: relative;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
+.link.current{
+  position: relative;
+}
+
+.link.current::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
+}
 
 .link:hover, .link:focus {
     color: #404BBF;
-}
+} 
 
 
 .header-address {
@@ -108,24 +131,33 @@ img {
 
 .header-address-link {
   display: block;
-  padding: 24px 0;
+
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
 }
 
-.header-address-link:hover, .header-address-link:focus {
+.header-address-link:hover, .header-address-link:focus, .link.current {
     color: #404BBF;
 }
 
 
 /* Section 1 */
 
-.main-background {
+.section-1 {
+    width: 100%;
     background: #2e2f42;
     line-height: 1.07;
-   padding: 188px 0;
+    padding: 188px 0;
+    background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+    rgba(46, 47, 66, 0.7)),
+      url('../images/section_1/people-office 1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-right: auto;
 
 } 
 
@@ -166,6 +198,8 @@ img {
   min-width: 169px;
   margin-left: auto;
     margin-right: auto;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
 .main-button:hover, .main-button:focus {
@@ -200,17 +234,47 @@ img {
 .goal-text {
   line-height: 1.5;
   letter-spacing: 0.02em;
-width: 264px;
+  width: 264px;
 }
 
 .list-goals {
   display: flex;
   gap: 24px;
+    /* gap: 24px;    Проміжки між елементами */
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Видалення стандартних маркерів списку */
 }
 
 .element-list-goals {
-  width: calc((100% - 72px) / 4);
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc((100% - 72px) / 4);/* Ширина кожного елемента */
+
 }
+
+.strategy-icons-bars {
+  
+    border: 1px solid #8e8f99;
+      border-radius: 4px;
+      width: 100%;
+      height: 112px;
+      background: #f4f4fd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 8px;   /* Відступ під іконкою */
+}
+
+.icons {
+  width: 64px;
+  height: 64px;
+  display: block;
+  /* Забезпечує коректне відображення SVG */
+}
+
+
 
 /* section 3 */
 
@@ -268,6 +332,30 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
   letter-spacing: 0.02em;
   color: #434455;
   text-align: center;
+  padding-bottom: 4px;
+}
+
+.social-list {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.social-list-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+  fill: #f4f4fd;
+  
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-list-link:hover {
+  background-color: #404bbf;
 }
 
 /* section 4 */
@@ -290,6 +378,32 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
   row-gap: 48px;
 }
 
+/* 2d effect */
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: #4d5ae5;
+  color: #f4f4fd;
+  padding: 40px 32px;
+}
+
+.element-our-portfolio-list:hover .overlay {
+  transform: translateY(0);
+  
+}
+
 .our-portfolio-underfoto {
   display: flex;
   flex-direction: column;
@@ -304,6 +418,13 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
 
 .element-our-portfolio-list {
   width: calc((100% - 48px) / 3);
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.element-our-portfolio-list:hover{
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+    background: #fff;
 }
 
 .our-portfolio-names {
@@ -328,6 +449,12 @@ box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.1
 .footer {
 background-color: #2e2f42;
 padding: 100px 0;
+
+}
+
+.footer-content {
+  display: flex;
+  gap: 120px;
 }
 
 .logo-footer {
@@ -344,21 +471,47 @@ padding: 100px 0;
 }
 
 .accent-footer {
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 1.16667;
-        letter-spacing: 0.03em;
-        text-transform: uppercase;
-        color: #f4f4fd;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.16667;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #f4f4fd;
 }
 
 .text-footer {
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 1.5;
-        letter-spacing: 0.02em;
-        color: #f4f4fd;
-        max-width: 264px;
-        
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  max-width: 264px;
 
-      }
+}
+
+.social-media-text-footer {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+   max-width: 264px;
+  margin-bottom: 16px;
+}
+.social-list-link-footer {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4d5ae5;
+    fill: #f4f4fd;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-list-link-footer:hover {
+  background-color: #31d0aa;
+}
+
